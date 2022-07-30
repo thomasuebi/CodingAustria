@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { Launcher } from "popup-chat-react"
+import { getFunctions, httpsCallable } from "firebase/functions"
 
 const App = () => {
   const [state, setState] = useState({
@@ -9,12 +10,17 @@ const App = () => {
     fileUpload: true,
   })
 
+  const functions = getFunctions()
+  const getAnswer = httpsCallable(functions, "getAnswer")
+
   async function onMessageWasSent(message) {
     setState((state) => ({
       ...state,
       messageList: [...state.messageList, message],
     }))
-    sendMessage("blub")
+
+    const result = await getAnswer({ text: message })
+    sendMessage(result)
   }
 
   function onFilesSelected(fileList) {
