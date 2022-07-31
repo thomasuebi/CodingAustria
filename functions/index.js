@@ -173,7 +173,7 @@ exports.getAnswer = functions.https.onRequest(async (request, response) => {
         console.log(result)
         answer = Object.keys(result)
           .map(function (key, index) {
-            return `${key}: ${result[key]}`
+            return `${key.replace("ns13:", "")}: ${result[key]}`
           })
           .join("\n")
       } else if (
@@ -207,7 +207,11 @@ exports.getAnswer = functions.https.onRequest(async (request, response) => {
 
         const queryResponse = await discovery.query(queryParams)
 
-        let result = queryResponse.result.results[0]
+        let result = history[history.length - 1].data.text
+          .toLowerCase()
+          .includes("schule")
+          ? JSON.stringify(require("./schools.json"))
+          : queryResponse.result.results[0]
           ? removeTags(queryResponse.result.results[0].text)
           : "Dazu finde ich leider nichts."
         if (queryResponse.result.results.length >= 3) {

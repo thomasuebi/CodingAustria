@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { Launcher } from "popup-chat-react"
 import { getFunctions, httpsCallable } from "firebase/functions"
+import QR from "./qr.png"
 
 const App = () => {
   const [state, setState] = useState({
@@ -83,6 +84,7 @@ const App = () => {
 
   return (
     <div>
+      <img src={QR} style={{ width: "500px", height: "500px" }} alt='QR' />
       <Launcher
         agentProfile={{
           teamName: "Gemeinde Bludenz",
