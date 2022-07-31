@@ -1,8 +1,8 @@
-# Gemeinde-Bot
+# Gmoandi - Der Gemeinde-Bot
 
 Wien bietet fortgeschrittenen Chatbot für eine einfache Kommunikation für die Bürger. Kleinere Gemeinden haben nicht die notwendigen Resourcen um in monatelange Entwicklung und Bot-Training zu investieren.
 
-Die Lösung ist der Gemeinde-Bot, der innerhalb weniger Minuten für eine Gemeinde aufgesetzt wird. Er crawl automatisiert die Website der Gemeinde für richtige und aktuelle Informationen.
+Die Lösung ist Gmoandi, der innerhalb weniger Minuten für eine Gemeinde aufgesetzt wird. Er crawl automatisiert die Website der Gemeinde für richtige und aktuelle Informationen.
 
 Features:
 
@@ -16,7 +16,7 @@ Potentielle Weiterentwicklungen:
 
 ## Technologie
 
-Gemeinde-Bot setzt auf
+Gmoandi setzt auf
 
 - GPT-3 für Textverständnis und bauen von Texten
 - IBM Watson Discovery für das Indexieren und intelligente Suchen von Information auf der Gemeinde-Website
@@ -66,4 +66,4 @@ Dazu `firebase functions:config:set` nutzen, um die folgenden Variablen einzuric
 
 Firebase einrichten
 
-`firebase deploy`
+`npm run build && firebase deploy`

@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { Launcher } from "popup-chat-react"
 import { getFunctions, httpsCallable } from "firebase/functions"
 import QR from "./qr.png"
+import favicon from "./favicon.png"
 
 const App = () => {
   const [state, setState] = useState({
@@ -10,7 +11,7 @@ const App = () => {
         author: "them",
         type: "text",
         data: {
-          text: "Ich bin dein digitaler Assistent für die Gemeinde Bludenz. Wie kann ich Ihnen heute helfen?",
+          text: "Ich bin Gmoandi, dein digitaler Assistent für die Gemeinde Bludenz. Wie kann ich Ihnen heute helfen?",
         },
       },
     ],
@@ -87,9 +88,8 @@ const App = () => {
       <img src={QR} style={{ width: "500px", height: "500px" }} alt='QR' />
       <Launcher
         agentProfile={{
-          teamName: "Gemeinde Bludenz",
-          // imageUrl:
-          //   "https://a.slack-edge.com/66f9/img/avatars-teams/ava_0001-34.png",
+          teamName: "Gmoandi - Gemeinde Bludenz",
+          imageUrl: favicon,
         }}
         onMessageWasSent={onMessageWasSent}
         onFilesSelected={onFilesSelected}
@@ -100,8 +100,7 @@ const App = () => {
         showEmoji
         fileUpload={state.fileUpload}
         pinMessage={{
-          // imageUrl:
-          //   "https://a.slack-edge.com/66f9/img/avatars-teams/ava_0001-34.png",
+          imageUrl: favicon,
           title: "Deine digitale Unterstützung!",
           text: "Ich helfe dir mit all deinen Fragen und dabei, Formulare auszufüllen.",
         }}
