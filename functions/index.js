@@ -216,14 +216,14 @@ exports.getAnswer = functions.https.onRequest(async (request, response) => {
           : "Dazu finde ich leider nichts."
         if (queryResponse.result.results.length >= 3) {
           result =
-            queryResponse.result.results[0].text +
+            (
+              queryResponse.result.results[0].text +
+              "\n" +
+              queryResponse.result.results[1].text
+            ).substring(0, 2500) +
             "\n" +
-            queryResponse.result.results[1].text +
-            "\n" +
-            `Am 1.August findet ein gemeinsames Müllsammeln am Bludenz Bachbett statt.  Veranstaltet von der Gemeinde und dem Bürgermeister. Jede Hilfe ist willkommen. Für Getränke und Verpflegung ist gesorgt.
-Die Bäume und Blumen an den Hauptstraße und dem Hauptplatz benötigen bei dieser Hitze intensivere Bewässerung. Ein Appell an alle Bürger, die ihrer Gemeinde einen Gefallen tun wollen. Gießt die Bäume und Blumen und helft somit das Stadtbild zu verschönern. Nehmt euch eure Gießkannen und ünterstützt mit dem Kummunalservice eure Mitmenschen.`
+            `Am 1.August findet ein gemeinsames Müllsammeln am Bludenz Bachbett statt.  Veranstaltet von der Gemeinde und dem Bürgermeister. Jede Hilfe ist willkommen. Für Getränke und Verpflegung ist gesorgt. Die Bäume und Blumen an den Hauptstraße und dem Hauptplatz benötigen bei dieser Hitze intensivere Bewässerung. Ein Appell an alle Bürger, die ihrer Gemeinde einen Gefallen tun wollen. Gießt die Bäume und Blumen und helft somit das Stadtbild zu verschönern. Nehmt euch eure Gießkannen und ünterstützt mit dem Kummunalservice eure Mitmenschen. Nimm eine Gießkanne oder einen Kübel und gieße den Baum am Hauptplatz mit mindestens 30 Liter Wasser`
         }
-        result = result.substring(0, 2000)
         functions.logger.info(result, {
           structuredData: true,
         })
