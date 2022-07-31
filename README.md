@@ -1,5 +1,7 @@
 # Gmoandi - Der Gemeinde-Bot
 
+[Demo](https://municipality-bot.web.app/)
+
 Wien bietet fortgeschrittenen Chatbot für eine einfache Kommunikation für die Bürger. Kleinere Gemeinden haben nicht die notwendigen Resourcen um in monatelange Entwicklung und Bot-Training zu investieren.
 
 Die Lösung ist Gmoandi, der innerhalb weniger Minuten für eine Gemeinde aufgesetzt wird. Er crawl automatisiert die Website der Gemeinde für richtige und aktuelle Informationen.

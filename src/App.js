@@ -89,7 +89,7 @@ const App = () => {
       <Launcher
         agentProfile={{
           teamName: "Gmoandi - Gemeinde Bludenz",
-          imageUrl: favicon,
+          // imageUrl: favicon,
         }}
         onMessageWasSent={onMessageWasSent}
         onFilesSelected={onFilesSelected}
