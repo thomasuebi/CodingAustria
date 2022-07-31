@@ -16,7 +16,7 @@ const App = () => {
       },
     ],
     newMessagesCount: 0,
-    isOpen: false,
+    isOpen: true,
     fileUpload: true,
   })
 
