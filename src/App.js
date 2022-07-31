@@ -4,7 +4,15 @@ import { getFunctions, httpsCallable } from "firebase/functions"
 
 const App = () => {
   const [state, setState] = useState({
-    messageList: [],
+    messageList: [
+      {
+        author: "them",
+        type: "text",
+        data: {
+          text: "Ich bin dein digitaler Assistent für die Gemeinde Bludenz. Wie kann ich Ihnen heute helfen?",
+        },
+      },
+    ],
     newMessagesCount: 0,
     isOpen: false,
     fileUpload: true,
@@ -14,13 +22,15 @@ const App = () => {
   const getAnswer = httpsCallable(functions, "getAnswer")
 
   async function onMessageWasSent(message) {
-    setState((state) => ({
+    const newState = {
       ...state,
       messageList: [...state.messageList, message],
-    }))
+    }
 
-    const result = await getAnswer({ text: message })
-    sendMessage(result)
+    setState((state) => newState)
+
+    const result = await getAnswer({ history: newState.messageList })
+    sendMessage(result?.data?.trim())
   }
 
   function onFilesSelected(fileList) {
@@ -75,7 +85,7 @@ const App = () => {
     <div>
       <Launcher
         agentProfile={{
-          teamName: "Gemeinde Sonntagberg",
+          teamName: "Gemeinde Bludenz",
           // imageUrl:
           //   "https://a.slack-edge.com/66f9/img/avatars-teams/ava_0001-34.png",
         }}
